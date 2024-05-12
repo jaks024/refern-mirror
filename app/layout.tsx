@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     description:
       "The all-in-one art tool to save, create, find, organize, moodboard, and share curated art references so that you can focus on creating your best work.",
     type: "website",
-    url: "https://www.refern.app",
+    url: "https://my.refern.app",
     images: {
       url: "https://storage.googleapis.com/refern-static-content/opengraph.png",
       alt: "refern logo",
