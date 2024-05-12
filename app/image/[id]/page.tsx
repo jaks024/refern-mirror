@@ -187,14 +187,20 @@ export default async function Page({ params }: any) {
         <h1 className="text-3xl font-bold">View reference image</h1>
         <br />
         <div className="relative w-full h-96 overflow-hidden">
-          <Image src={image.url} className="object-contain" fill alt={alt} />
+          <Image
+            src={image.url}
+            priority
+            className="object-contain"
+            fill
+            alt={alt}
+          />
         </div>
         <p>Name: {image.name}</p>
         <p>Description: {image.description}</p>
 
         <div>
-          Source:
-          <a href={image.sourceUrl} rel="noreferrer">
+          Source:{" "}
+          <a href={image.sourceUrl} className="underline" rel="noreferrer">
             {image.sourceName}
           </a>
         </div>
