@@ -162,18 +162,18 @@ export default async function Page({ params }: any) {
 
   const renderInferred = () => {
     if (!image.inferred || !image.inferred.labelled) {
-      return <div>no inferred properties</div>;
+      return <div>No inferred properties</div>;
     }
     const labels = image.inferred.labelled;
     return (
       <div>
-        <p>content: {labels.content}</p>
-        <p>people: {labels.people}</p>
-        <p>environment: {labels.environment}</p>
-        <p>lighting: {labels.lighting}</p>
-        <p>perspective: {labels.perspective}</p>
-        <p>keywords: {labels.keywords}</p>
-        <p>what is in the image: {labels.witi}</p>
+        <p>Content: {labels.content}</p>
+        <p>People: {labels.people}</p>
+        <p>Environment: {labels.environment}</p>
+        <p>Lighting: {labels.lighting}</p>
+        <p>Perspective: {labels.perspective}</p>
+        <p>Keywords: {labels.keywords}</p>
+        <p>What is in the image: {labels.witi}</p>
       </div>
     );
   };
@@ -189,16 +189,16 @@ export default async function Page({ params }: any) {
         <div className="relative w-full h-96 overflow-hidden">
           <Image src={image.url} className="object-contain" fill alt={alt} />
         </div>
-        <p>name: {image.name}</p>
-        <p>description: {image.description}</p>
+        <p>Name: {image.name}</p>
+        <p>Description: {image.description}</p>
 
         <div>
-          source:
+          Source:
           <a href={image.sourceUrl} rel="noreferrer">
             {image.sourceName}
           </a>
         </div>
-        <p>tags: {image.tags.join(", ")}</p>
+        <p>Tags: {image.tags.join(", ")}</p>
         <p>
           Created by: {user.username} {`(@${user.at})`}
         </p>
