@@ -1,4 +1,4 @@
-import { getBoard, getUser } from "@/app/apis";
+import { getBoard, getImage, getUser } from "@/app/apis";
 import Container from "@/app/components/Container";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -14,10 +14,15 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     return {};
   }
 
-  const previewImageUrl =
-    board.cover.length > 0
-      ? board.cover
-      : "https://storage.googleapis.com/refern-static-content/opengraph.png";
+  const firstImageId =
+    board.imageProperties.transforms.length > 0
+      ? board.imageProperties.transforms[0].imageId
+      : "";
+  const firstImage = await getImage(firstImageId);
+
+  const previewImageUrl = firstImage
+    ? firstImage.thumbnailUrl
+    : "https://storage.googleapis.com/refern-static-content/opengraph.png";
 
   const title = `View reference board created by ${user.username} (@${user.at})`;
 
@@ -36,7 +41,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       type: "website",
       url: `https://my.refern.app/folder/${board.parentFolderId}/board/${board._id}`,
       images: {
-        url: previewImageUrl,
+        url: board?.cover.length > 0 ? board.cover : previewImageUrl,
         alt: description,
         type: "image/png",
       },
