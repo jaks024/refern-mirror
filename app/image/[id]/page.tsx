@@ -73,6 +73,18 @@ interface User {
   photoUrl: string;
 }
 
+interface Collection {
+  creatorUserId: string;
+  parentFolderId: string;
+  name: string;
+  description: string;
+  imageIds: string[];
+  tags: string[];
+  cover: string;
+
+  heart: number;
+}
+
 async function getUser(userId: string) {
   const res = await fetch(`${process.env.API_ROOT}/user/${userId}`);
   if (res.ok) {
@@ -93,6 +105,16 @@ async function getImage(imageId: string) {
   }
 }
 
+async function getCollection(collectionId: string) {
+  const res = await fetch(`${process.env.API_ROOT}/collection/${collectionId}`);
+  if (res.ok) {
+    const data = await res.json();
+    return data as Collection;
+  } else {
+    return undefined;
+  }
+}
+
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const image = await getImage(params.id);
   if (!image) {
@@ -103,7 +125,9 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     return {};
   }
 
-  const description = image?.inferred?.labelled?.witi ?? image?.description;
+  const description =
+    image?.inferred?.labelled?.witi ??
+    `${image?.description}${image.tags.join(", ")}`;
 
   const inferredTags =
     image.inferred?.labelled && image.inferred?.labelled?.status === "success"
@@ -152,6 +176,7 @@ export default async function Page({ params }: any) {
   if (!user) {
     return <div>Error 404: not found</div>;
   }
+  const collection = await getCollection(image?.parentCollectionId);
 
   const alt =
     image.inferred &&
@@ -206,8 +231,26 @@ export default async function Page({ params }: any) {
         </div>
         <p>Tags: {image.tags.join(", ")}</p>
         <p>
-          Created by: {user.username} {`(@${user.at})`}
+          Created by:{" "}
+          <a className="underline" href={`https://my.refern.app/${user.at}`}>
+            {user.username} {`(@${user.at})`}
+          </a>
         </p>
+        <p>
+          Parent collection:{" "}
+          <a
+            className="underline"
+            href={`https://my.refern.app/folder/${collection?.parentFolderId}/collection/${image.parentCollectionId}`}
+          >
+            {collection?.name}
+          </a>
+        </p>
+        <a
+          className="underline"
+          href={`https://my.refern.app/folder/${collection?.parentFolderId}`}
+        >
+          Parent folder
+        </a>
         <p>Created at: {image.createdAt}</p>
         <p>Updated at: {image.updatedAt}</p>
         <br />
