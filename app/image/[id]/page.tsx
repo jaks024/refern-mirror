@@ -37,6 +37,11 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
         ? "The all-in-one tool to save, create, find, organize, moodboard, and share curated art references so that you can focus on creating your best work."
         : description,
     keywords,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true },
+    },
     applicationName: "refern. | The curated art reference platform",
     openGraph: {
       siteName: "refern. | The curated art reference platform",

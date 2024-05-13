@@ -30,6 +30,11 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     title,
     description,
     keywords: collection.tags,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true },
+    },
     applicationName: "refern. | The curated art reference platform",
     openGraph: {
       siteName: "refern. | The curated art reference platform",

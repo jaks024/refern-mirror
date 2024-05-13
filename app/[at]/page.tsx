@@ -1,11 +1,4 @@
-import {
-  getAllUserFolders,
-  getCollection,
-  getFolder,
-  getImage,
-  getUser,
-  getUserByAt,
-} from "@/app/apis";
+import { getAllUserFolders, getUserByAt } from "@/app/apis";
 import Container from "@/app/components/Container";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -28,6 +21,11 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     title,
     description,
     keywords: user.allTags,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true },
+    },
     applicationName: "refern. | The curated art reference platform",
     openGraph: {
       siteName: "refern. | The curated art reference platform",
