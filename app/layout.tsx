@@ -48,6 +48,10 @@ export const metadata: Metadata = {
       height: "596",
     },
   },
+  metadataBase: new URL("https://my.refern.app"),
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({

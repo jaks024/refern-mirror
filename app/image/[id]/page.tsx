@@ -58,6 +58,9 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
         type: "image/png",
       },
     },
+    alternates: {
+      canonical: `/image/${params.id}`,
+    },
   };
 }
 
