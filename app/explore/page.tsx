@@ -57,8 +57,8 @@ export default function Explore() {
         <br />
         <p>Explore page</p>
         <p>
-          Find and explore other creator's art references collections, profiles,
-          and reference boards
+          {`Find and explore other creator's art references collections, profiles,
+          and reference boards`}
         </p>
         <a className="underline" href="https://www.refern.app">
           landing page
