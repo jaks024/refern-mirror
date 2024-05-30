@@ -47,7 +47,9 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       siteName: "refern. | The curated art reference platform",
       locale: "en_US",
       title: `View reference created by ${user.username} (@${user.at})`,
-      description,
+      description: `View image - ${image?.description} ${image.tags.join(
+        ", "
+      )}`,
       type: "website",
       url: `https://my.refern.app/image/${params.id}`,
       images: {
