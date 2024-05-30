@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       title,
       description,
       type: "website",
-      url: `https://my.refern.app/folder/${collection.parentFolderId}/collection/${params.collectionId}`,
+      url: `https://my.refern.app/collection/${params.collectionId}`,
       images: {
         url: collection?.cover.length > 0 ? collection.cover : previewImageUrl,
         alt: description,
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       },
     },
     alternates: {
-      canonical: `/folder/${collection.parentFolderId}/collection/${params.collectionId}`,
+      canonical: `/collection/${params.collectionId}`,
     },
   };
 }

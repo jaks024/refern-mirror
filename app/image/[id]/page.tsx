@@ -137,7 +137,7 @@ export default async function Page({ params }: any) {
           Parent collection:{" "}
           <Link
             className="underline"
-            href={`/folder/${collection?.parentFolderId}/collection/${image.parentCollectionId}`}
+            href={`/collection/${image.parentCollectionId}`}
           >
             {collection?.name}
           </Link>

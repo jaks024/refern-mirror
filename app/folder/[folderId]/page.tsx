@@ -99,12 +99,8 @@ export default async function Page({ params }: any) {
         <h2 className="text-xl font-bold">Collection content</h2>
         <div className="flex flex-col gap-2 underline">
           {folder.items.map((x) => (
-            <Link
-              key={x._id}
-              href={`/folder/${folder._id}/${x.type}/${x._id}`}
-              className="w-fit"
-            >
-              {`../${x.type}/${x._id}`}
+            <Link key={x._id} href={`/${x.type}/${x._id}`} className="w-fit">
+              {`/${x.type}/${x._id}`}
             </Link>
           ))}
         </div>
