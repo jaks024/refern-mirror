@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       title,
       description,
       type: "website",
-      url: `https://my.refern.app/folder/${board.parentFolderId}/board/${board._id}`,
+      url: `https://my.refern.app/board/${board._id}`,
       images: {
         url: board?.cover.length > 0 ? board.cover : previewImageUrl,
         alt: description,
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       },
     },
     alternates: {
-      canonical: `/folder/${board.parentFolderId}/board/${board._id}`,
+      canonical: `/board/${board._id}`,
     },
   };
 }
