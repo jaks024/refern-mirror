@@ -99,8 +99,8 @@ export default async function Page({ params }: any) {
         <p>Perspective: {labels.perspective}</p>
         <p>Keywords: {labels.keywords}</p>
         <p>What is in the image: {labels.witi}</p>
-        <p>WDTagged Character: {image.inferred.wdtagged.character}</p>
-        <p>WDTagged Tags: {image.inferred.wdtagged.tags}</p>
+        <p>WDTagged Character: {image.inferred?.wdtagged?.character}</p>
+        <p>WDTagged Tags: {image.inferred?.wdtagged?.tags}</p>
       </div>
     );
   };

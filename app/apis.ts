@@ -21,7 +21,9 @@ export async function getUserByAt(at: string) {
 }
 
 export async function getImage(imageId: string) {
-  const res = await fetch(`${process.env.API_ROOT}/image/${imageId}`);
+  const res = await fetch(`${process.env.API_ROOT}/image/${imageId}`, {
+    cache: "no-store",
+  });
   if (res.ok) {
     const data = await res.json();
     return data as Image;
@@ -31,7 +33,10 @@ export async function getImage(imageId: string) {
 }
 
 export async function getCollection(collectionId: string) {
-  const res = await fetch(`${process.env.API_ROOT}/collection/${collectionId}`);
+  const res = await fetch(
+    `${process.env.API_ROOT}/collection/${collectionId}`,
+    { cache: "no-store" }
+  );
   if (res.ok) {
     const data = await res.json();
     return data as Collection;
@@ -41,7 +46,9 @@ export async function getCollection(collectionId: string) {
 }
 
 export async function getFolder(folderId: string) {
-  const res = await fetch(`${process.env.API_ROOT}/folder/${folderId}`);
+  const res = await fetch(`${process.env.API_ROOT}/folder/${folderId}`, {
+    cache: "no-store",
+  });
   if (res.ok) {
     const data = await res.json();
     return data as Folder;
@@ -61,7 +68,9 @@ export async function getAllUserFolders(userId: string) {
 }
 
 export async function getBoard(boardId: string) {
-  const res = await fetch(`${process.env.API_ROOT}/board/${boardId}`);
+  const res = await fetch(`${process.env.API_ROOT}/board/${boardId}`, {
+    cache: "no-store",
+  });
   if (res.ok) {
     const data = await res.json();
     return data as Board;
