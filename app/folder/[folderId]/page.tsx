@@ -19,14 +19,17 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       ? folder.cover
       : "https://storage.googleapis.com/refern-static-content/opengraph.png";
 
-  const title = `View folder created by ${user.username} (@${user.at})`;
+  const title = `${folder.name} | View folder created by ${user.username} (@${user.at})`;
 
   const description = `View ${folder.items.length} collection and reference board in ${folder.name} | ${folder.description}`;
 
   return {
     title,
     description,
-    keywords: folder.tags,
+    keywords: [
+      ...folder.tags,
+      ...(folder.inferred ? folder.inferred?.keywords : []),
+    ],
     robots: {
       index: true,
       follow: true,

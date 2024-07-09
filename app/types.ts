@@ -55,6 +55,11 @@ export interface Image {
       ];
       witi: string;
     };
+    wdtagged: {
+      rating: string;
+      tags: string;
+      character: string;
+    };
   };
 
   createdAt: string;
@@ -95,20 +100,10 @@ export interface Collection {
 
   createdAt: string;
   updatedAt: string;
-}
 
-export interface Board {
-  _id: string;
-  creatorUserId: string;
-  parentFolderId: string;
-  name: string;
-  description: string;
-  tags: string[];
-  cover: string;
-  createdAt: string;
-  updatedAt: string;
-
-  heart: number;
+  inferred: {
+    keywords: string[];
+  };
 }
 
 export interface FolderItem {
@@ -127,6 +122,10 @@ export interface Folder {
   cover: string;
   createdAt: string;
   updatedAt: string;
+
+  inferred: {
+    keywords: string[];
+  };
 }
 
 export interface BoardImageTransform {
@@ -159,4 +158,8 @@ export interface Board {
   updatedAt: string;
 
   heart: number;
+
+  inferred: {
+    keywords: string[];
+  };
 }

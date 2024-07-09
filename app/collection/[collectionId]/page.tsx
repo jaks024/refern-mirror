@@ -22,14 +22,17 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     ? firstImage.thumbnailUrl
     : "https://storage.googleapis.com/refern-static-content/opengraph.png";
 
-  const title = `View collection created by ${user.username} (@${user.at})`;
+  const title = `${collection.name} | View collection created by ${user.username} (@${user.at})`;
 
   const description = `View ${collection.imageIds.length} images in ${collection.name} | ${collection.description}`;
 
   return {
     title,
     description,
-    keywords: collection.tags,
+    keywords: [
+      ...collection.tags,
+      ...(collection.inferred ? collection.inferred?.keywords : []),
+    ],
     robots: {
       index: true,
       follow: true,

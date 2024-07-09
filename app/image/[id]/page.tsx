@@ -28,7 +28,8 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     ${image.inferred?.labelled?.perspective.trim()} `
       : "";
 
-  const keywords = image.tags.join(", ") + inferredTags;
+  const keywords =
+    image.tags.join(", ") + inferredTags + image.inferred?.wdtagged?.tags;
 
   return {
     title: `View reference created by ${user.username} (@${user.at})`,

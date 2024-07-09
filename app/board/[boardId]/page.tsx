@@ -24,14 +24,17 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     ? firstImage.thumbnailUrl
     : "https://storage.googleapis.com/refern-static-content/opengraph.png";
 
-  const title = `View reference board created by ${user.username} (@${user.at})`;
+  const title = `${board.name} | View reference board created by ${user.username} (@${user.at})`;
 
   const description = `View ${board.imageProperties.transforms.length} referece images in ${board.name} | ${board.description}`;
 
   return {
     title,
     description,
-    keywords: board.tags,
+    keywords: [
+      ...board.tags,
+      ...(board.inferred ? board.inferred?.keywords : []),
+    ],
     robots: {
       index: true,
       follow: true,
