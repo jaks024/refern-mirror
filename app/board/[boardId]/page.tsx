@@ -105,6 +105,9 @@ export default async function Page({ params }: any) {
             {user.username} {`(@${user.at})`}
           </Link>
         </p>
+        <br />
+        <p>Tags of content: {board.inferred?.keywords.join(", ")}</p>
+        <br />
         <Link className="underline" href={`/folder/${board?.parentFolderId}`}>
           Parent folder
         </Link>

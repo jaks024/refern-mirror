@@ -107,6 +107,8 @@ export default async function Page({ params }: any) {
             </Link>
           ))}
         </div>
+        <br />
+        <p>Tags of content: {folder.inferred?.keywords.join(", ")}</p>
       </Container>
     </main>
   );

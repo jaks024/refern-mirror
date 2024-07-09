@@ -109,6 +109,8 @@ export default async function Page({ params }: any) {
         <p>Created at: {collection.createdAt}</p>
         <p>Updated at: {collection.updatedAt}</p>
         <br />
+        <p>Tags of content: {collection.inferred?.keywords.join(", ")}</p>
+        <br />
         <h2 className="text-xl font-bold">Collection content</h2>
         <div className="flex flex-col gap-2 underline">
           {collection.imageIds.map((x) => (
