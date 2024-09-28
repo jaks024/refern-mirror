@@ -13,9 +13,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "refern. | The curated art reference platform",
+  title: "refern. | The curated image reference platform",
   description:
-    "The all-in-one tool to save, create, find, organize, moodboard, and share curated art references so that you can focus on creating your best work.",
+    "Centralize all your reference images and streamline your creative workflow — refern. lets you save, find, organize, moodboard & share curated reference images all in one app.",
   keywords: [
     "art tool",
     "art reference",
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
-  applicationName: "refern. | The curated art reference platform",
+  applicationName: "refern. | The curated image reference platform",
   openGraph: {
-    siteName: "refern. | The curated art reference platform",
+    siteName: "refern. | The curated image reference platform",
     locale: "en_US",
-    title: "refern. | The curated art reference platform",
+    title: "refern. | The curated image reference platform",
     description:
-      "The all-in-one art tool to save, create, find, organize, moodboard, and share curated art references so that you can focus on creating your best work.",
+      "Centralize all your reference images and streamline your creative workflow — refern. lets you save, find, organize, moodboard & share curated reference images all in one app.",
     type: "website",
     url: "https://my.refern.app",
     images: {
