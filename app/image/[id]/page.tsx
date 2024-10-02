@@ -18,18 +18,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     image?.inferred?.labelled?.witi ??
     `${image?.description}${image.tags.join(", ")}`;
 
-  const inferredTags =
-    image.inferred?.labelled && image.inferred?.labelled?.status === "success"
-      ? `${image.inferred?.labelled?.content.trim()} 
-    ${image.inferred?.labelled?.environment.trim()} 
-    ${image.inferred?.labelled?.keywords.trim()} 
-    ${image.inferred?.labelled?.lighting.trim()} 
-    ${image.inferred?.labelled?.people.trim()} 
-    ${image.inferred?.labelled?.perspective.trim()} `
-      : "";
-
-  const keywords =
-    image.tags.join(", ") + inferredTags + image.inferred?.wdtagged?.tags;
+  const keywords = image.tags.join(", ") + image.inferred?.wdtagged?.tags;
 
   return {
     title: `View reference created by ${user.username} (@${user.at})`,
@@ -82,23 +71,16 @@ export default async function Page({ params }: any) {
     image.inferred &&
     image.inferred.labelled &&
     image.inferred.labelled.status === "success"
-      ? image.inferred.labelled.witi
+      ? image.inferred?.labelled?.witi
       : image.description;
 
   const renderInferred = () => {
     if (!image.inferred || !image.inferred.labelled) {
       return <div>No inferred properties</div>;
     }
-    const labels = image.inferred.labelled;
     return (
       <div>
-        <p>Content: {labels.content}</p>
-        <p>People: {labels.people}</p>
-        <p>Environment: {labels.environment}</p>
-        <p>Lighting: {labels.lighting}</p>
-        <p>Perspective: {labels.perspective}</p>
-        <p>Keywords: {labels.keywords}</p>
-        <p>What is in the image: {labels.witi}</p>
+        <p>What is in the image: {image.inferred?.labelled?.witi}</p>
         <p>WDTagged Character: {image.inferred?.wdtagged?.character}</p>
         <p>WDTagged Tags: {image.inferred?.wdtagged?.tags}</p>
       </div>
