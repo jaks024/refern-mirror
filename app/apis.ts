@@ -1,4 +1,4 @@
-import { Board, Collection, Folder, Image, User } from "./types";
+import { Board, Collection, Folder, Image, StudySesssion, User } from "./types";
 
 export async function getUser(userId: string) {
   const res = await fetch(`${process.env.API_ROOT}/user/${userId}`);
@@ -74,6 +74,18 @@ export async function getBoard(boardId: string) {
   if (res.ok) {
     const data = await res.json();
     return data as Board;
+  } else {
+    return undefined;
+  }
+}
+
+export async function getStudySession(sessionId: string) {
+  const res = await fetch(`${process.env.API_ROOT}/study/${sessionId}`, {
+    cache: "no-store",
+  });
+  if (res.ok) {
+    const data = await res.json();
+    return data as StudySesssion;
   } else {
     return undefined;
   }

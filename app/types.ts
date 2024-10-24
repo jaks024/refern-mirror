@@ -163,3 +163,15 @@ export interface Board {
     keywords: string[];
   };
 }
+
+export interface StudySesssion {
+  _id: string;
+  creatorUserId: string;
+  title: string;
+  notes: string;
+  collectionId: string;
+  createdImageIds: string[];
+  seenImageIds: string[];
+  createdAt: string;
+  updatedAt: string;
+}
