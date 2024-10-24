@@ -29,7 +29,9 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       : `Session on ${new Date(session.createdAt).toDateString()}`
   } | Study session by ${user.username} (@${user.at})`;
 
-  const description = `${session.seenImageIds.length} reference studied ⋅ ${session.createdImageIds.length} linked creations | ${session.notes}`;
+  const description = `${session.seenImageIds.length} reference studied ⋅ ${
+    session.createdImageIds.length
+  } linked creations${session.notes ? ` | ${session.notes}` : ""}`;
 
   return {
     title,
