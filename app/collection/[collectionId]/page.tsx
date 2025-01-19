@@ -24,7 +24,9 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
   const title = `${collection.name} | View collection created by ${user.username} (@${user.at})`;
 
-  const description = `View ${collection.imageIds.length} images in ${collection.name} | ${collection.description}`;
+  const description = `View ${collection.imageIds.length} images in ${
+    collection.name
+  }${collection.description ? ` | ${collection.description}` : ""}`;
 
   return {
     title,

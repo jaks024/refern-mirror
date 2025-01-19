@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     title: `View reference created by ${user.username} (@${user.at})`,
     description:
       description.length === 0
-        ? "The all-in-one tool to save, create, find, organize, moodboard, and share curated art references so that you can focus on creating your best work."
+        ? "refern. is an ad-free, Pinterest-like image organizer, reimagined for creatives — save, find, organize, moodboard, study & share curated reference images all in one app."
         : description,
     keywords,
     robots: {

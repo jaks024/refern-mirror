@@ -26,7 +26,11 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
   const title = `${board.name} | View reference board created by ${user.username} (@${user.at})`;
 
-  const description = `View ${board.imageProperties.transforms.length} referece images in ${board.name} | ${board.description}`;
+  const description = `View ${
+    board.imageProperties.transforms.length
+  } reference images in ${board.name}${
+    board.description ? ` | ${board.description}` : ""
+  }`;
 
   return {
     title,

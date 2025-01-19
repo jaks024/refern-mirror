@@ -6,7 +6,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   return {
     title: "Explore | refern. ",
     description:
-      "Find and save artist curated curated references images. Search curated collections, reference boards, reference images, and artist profiles.",
+      "refern. is an ad-free, Pinterest-like image organizer, reimagined for creatives — save, find, organize, moodboard, study & share curated reference images all in one app.",
     keywords: [
       "art tool",
       "art reference",
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       locale: "en_US",
       title: "Explore | refern.",
       description:
-        "Find and save artist curated curated references images. Search curated collections, reference boards, reference images, and artist profiles.",
+        "refern. is an ad-free, Pinterest-like image organizer, reimagined for creatives — save, find, organize, moodboard, study & share curated reference images all in one app.",
       type: "website",
       url: "https://my.refern.app/explore",
       images: {

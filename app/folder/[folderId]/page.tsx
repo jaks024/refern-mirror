@@ -21,7 +21,11 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
   const title = `${folder.name} | View folder created by ${user.username} (@${user.at})`;
 
-  const description = `View ${folder.items.length} collection and reference board in ${folder.name} | ${folder.description}`;
+  const description = `View ${
+    folder.items.length
+  } collection and reference board in ${folder.name}${
+    folder.description ? ` | ${folder.description}` : ""
+  }`;
 
   return {
     title,
