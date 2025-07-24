@@ -24,9 +24,10 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       follow: true,
       googleBot: { index: true, follow: true },
     },
-    applicationName: "refern. | The curated art reference platform",
+    applicationName:
+      "refern. | The all-in-one curated image reference platform",
     openGraph: {
-      siteName: "refern. | The curated art reference platform",
+      siteName: "refern. | The all-in-one curated image reference platform",
       locale: "en_US",
       title: "Explore | refern.",
       description:
@@ -52,7 +53,7 @@ export default function Explore() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Container>
         <h1 className="text-5xl font-bold">
-          refern. | The curated art reference platform
+          refern. | The all-in-one curated image reference platform
         </h1>
         <br />
         <p>Explore page</p>

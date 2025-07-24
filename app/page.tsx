@@ -6,7 +6,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Container>
         <h1 className="text-5xl font-bold">
-          refern. | The curated art reference platform
+          refern. | The all-in-one curated image reference platform
         </h1>
         <br />
         <p>

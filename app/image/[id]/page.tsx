@@ -32,9 +32,10 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       follow: true,
       googleBot: { index: true, follow: true },
     },
-    applicationName: "refern. | The curated art reference platform",
+    applicationName:
+      "refern. | The all-in-one curated image reference platform",
     openGraph: {
-      siteName: "refern. | The curated art reference platform",
+      siteName: "refern. | The all-in-one curated image reference platform",
       locale: "en_US",
       title: `View reference created by ${user.username} (@${user.at})`,
       description: `View image - ${image?.description} ${image.tags.join(
@@ -91,7 +92,7 @@ export default async function Page({ params }: any) {
     <main>
       <Container>
         <a href="https://www.refern.app/" className="w-fit underline">
-          refern. | The curated art reference platform
+          refern. | The all-in-one curated image reference platform
         </a>
         <h1 className="text-3xl font-bold">View reference image</h1>
         <br />
@@ -120,21 +121,19 @@ export default async function Page({ params }: any) {
             {user.username} {`(@${user.at})`}
           </Link>
         </p>
-        <p>
-          Parent collection:{" "}
-          <Link
-            className="underline"
-            href={`/collection/${image.parentCollectionId}`}
-          >
-            {collection?.name}
-          </Link>
-        </p>
-        <Link
-          className="underline"
-          href={`/folder/${collection?.parentFolderId}`}
-        >
-          Parent folder
-        </Link>
+        {collection ? (
+          <p>
+            Parent collection:{" "}
+            <Link
+              className="underline"
+              href={`/collection/${image.parentCollectionId}`}
+            >
+              {collection?.name}
+            </Link>
+          </p>
+        ) : (
+          <></>
+        )}
         <p>Created at: {image.createdAt}</p>
         <p>Updated at: {image.updatedAt}</p>
         <br />

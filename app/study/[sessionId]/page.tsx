@@ -41,9 +41,10 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       follow: false,
       googleBot: { index: false, follow: false },
     },
-    applicationName: "refern. | The curated art reference platform",
+    applicationName:
+      "refern. | The all-in-one curated image reference platform",
     openGraph: {
-      siteName: "refern. | The curated art reference platform",
+      siteName: "refern. | The all-in-one curated image reference platform",
       locale: "en_US",
       title,
       description,
@@ -75,7 +76,7 @@ export default async function Page({ params }: any) {
     <main>
       <Container>
         <a href="https://www.refern.app/" className="w-fit underline">
-          refern. | The curated art reference platform
+          refern. | The all-in-one curated image reference platform
         </a>
         <h1 className="text-3xl font-bold">View study session</h1>
         <br />

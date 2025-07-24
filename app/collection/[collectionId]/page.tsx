@@ -40,9 +40,10 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       follow: true,
       googleBot: { index: true, follow: true },
     },
-    applicationName: "refern. | The curated art reference platform",
+    applicationName:
+      "refern. | The all-in-one curated image reference platform",
     openGraph: {
-      siteName: "refern. | The curated art reference platform",
+      siteName: "refern. | The all-in-one curated image reference platform",
       locale: "en_US",
       title,
       description,
@@ -74,7 +75,7 @@ export default async function Page({ params }: any) {
     <main>
       <Container>
         <a href="https://www.refern.app/" className="w-fit underline">
-          refern. | The curated art reference platform
+          refern. | The all-in-one curated image reference platform
         </a>
         <h1 className="text-3xl font-bold">View reference image collection</h1>
         {collection?.cover.length > 0 ? (
@@ -102,12 +103,16 @@ export default async function Page({ params }: any) {
             {user.username} {`(@${user.at})`}
           </Link>
         </p>
-        <Link
-          className="underline"
-          href={`/folder/${collection?.parentFolderId}`}
-        >
-          Parent folder
-        </Link>
+        {collection?.parentFolderId ? (
+          <Link
+            className="underline"
+            href={`/folder/${collection?.parentFolderId}`}
+          >
+            Parent folder
+          </Link>
+        ) : (
+          <></>
+        )}
         <p>Created at: {collection.createdAt}</p>
         <p>Updated at: {collection.updatedAt}</p>
         <br />

@@ -1,8 +1,7 @@
-import { getAllUserFolders, getUserByAt } from "@/app/apis";
+import { getUserByAt } from "@/app/apis";
 import Container from "@/app/components/Container";
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const user = await getUserByAt(params.at);
@@ -26,9 +25,10 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       follow: true,
       googleBot: { index: true, follow: true },
     },
-    applicationName: "refern. | The curated art reference platform",
+    applicationName:
+      "refern. | The all-in-one curated image reference platform",
     openGraph: {
-      siteName: "refern. | The curated art reference platform",
+      siteName: "refern. | The all-in-one curated image reference platform",
       locale: "en_US",
       title,
       type: "website",
@@ -50,13 +50,12 @@ export default async function Page({ params }: any) {
   if (!user) {
     return <div>Error 404: user not found</div>;
   }
-  const allFolders = await getAllUserFolders(user._id);
 
   return (
     <main>
       <Container>
         <a href="https://www.refern.app/" className="w-fit underline">
-          refern. | The curated art reference platform
+          refern. | The all-in-one curated image reference platform
         </a>
         <h1 className="text-3xl font-bold">View user profile</h1>
         {user.photoUrl.length > 0 ? (
@@ -78,15 +77,6 @@ export default async function Page({ params }: any) {
 
         <p>All user tags: {user.allTags?.join(", ")}</p>
         <p>Member since: {user.createdAt}</p>
-        <br />
-        <h2 className="text-xl font-bold">Collection content</h2>
-        <div className="flex flex-col gap-2 underline">
-          {allFolders?.map((x) => (
-            <Link key={x._id} href={`/folder/${x._id}`} className="w-fit">
-              {`/folder/${x._id}`}
-            </Link>
-          ))}
-        </div>
       </Container>
     </main>
   );
