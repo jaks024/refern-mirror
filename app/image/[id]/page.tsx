@@ -37,10 +37,10 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     openGraph: {
       siteName: "refern. | The all-in-one curated image reference platform",
       locale: "en_US",
-      title: `View reference created by ${user.username} (@${user.at})`,
-      description: `View image - ${image?.description} ${image.tags.join(
-        ", "
-      )}`,
+      title: `View image shared by ${user.username} (@${user.at})`,
+      description: `View image ${
+        image?.description ? `| ${image?.description}` : ""
+      } ${image.tags.length > 0 ? ` | ${image.tags.join(", ")}` : ""}`,
       type: "website",
       url: `https://my.refern.app/image/${params.id}`,
       images: {
